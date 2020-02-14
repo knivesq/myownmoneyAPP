@@ -1,5 +1,5 @@
 apply plugin: "com.android.application"
-
+apply plugin: 'newrelic'
 import com.android.build.OutputFile
 
 /**
@@ -133,6 +133,9 @@ android {
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
         versionName "1.0"
+        missingDimensionStrategy 'react-native-camera', 'general'
+        multiDexEnabled true
+        resConfigs "en", "pt"
     }
     splits {
         abi {
@@ -179,7 +182,10 @@ android {
 }
 
 dependencies {
+    implementation 'androidx.appcompat:appcompat:1.1.0-rc01'
+    implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0-alpha02'
     implementation fileTree(dir: "libs", include: ["*.jar"])
+    implementation "com.newrelic.agent.android:android-agent:5.+"
     implementation "com.facebook.react:react-native:+"  // From node_modules
 
     if (enableHermes) {

@@ -9,6 +9,8 @@ import com.facebook.react.ReactPackage;
 import com.facebook.soloader.SoLoader;
 import java.lang.reflect.InvocationTargetException;
 import java.util.List;
+import com.newrelic.agent.android.NewRelic;
+
 
 public class MainApplication extends Application implements ReactApplication {
 
@@ -43,6 +45,7 @@ public class MainApplication extends Application implements ReactApplication {
   public void onCreate() {
     super.onCreate();
     SoLoader.init(this, /* native exopackage */ false);
+    NewRelic.withApplicationToken("AA1ec608fefa2ce10703bbd3eefb35d7b2f6b3735d-NRMA").start(this);
     initializeFlipper(this); // Remove this line if you don't want Flipper enabled
   }
 
