@@ -16,7 +16,7 @@ class AuthScreen extends React.Component<AuthScreenProps> {
     }
     render() {
         return (
-            <CustomView customView style={styles.root}>
+            <CustomView style={styles.root}>
                 <AuthView onSubmit={this.onSubmit}/>
             </CustomView>
         )

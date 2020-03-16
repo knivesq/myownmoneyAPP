@@ -14,6 +14,7 @@ export function* getSplashStart(action: Object) {
         //cade os requests de apizera
        
         console.log("getSplashStart", mainNavigation)
+        // delay(1000)
         yield call(mainNavigation.dispatch, auth)
 
 
